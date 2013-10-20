@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="Dojo Demo">
+
+	<property file="build_params.properties" />
+
+	<condition property="mvn.executable" value="mvn.bat" else="mvn">
+		<os family="windows" />
+	</condition>
+
+	<target name="mvn_scm_commit">
+		<exec executable="${mvn.executable}">
+			<arg line="scm:checkin -Dmessage=${scm.message} -DpushChanges=false" />
+		</exec>
+	</target>
+
+	<target name="mvn_scm_push">
+		<exec executable="${mvn.executable}">
+			<arg line="scm:checkin" />
+		</exec>
+	</target>
+
+	<target name="mvn_scm_checkout">
+		<exec executable="${mvn.executable}">
+			<arg line="scm:checkout" />
+		</exec>
+	</target>
+
+	<target name="mvn_scm_status">
+		<exec executable="${mvn.executable}">
+			<arg line="scm:status" />
+		</exec>
+	</target>
+
+	<target name="mvn_scm_changelog">
+		<exec executable="${mvn.executable}">
+			<arg line="scm:changelog" />
+		</exec>
+	</target>
+
+	<target name="mvn_scm_validate">
+		<exec executable="${mvn.executable}">
+			<arg line="scm:validate" />
+		</exec>
+	</target>
+
+</project>
